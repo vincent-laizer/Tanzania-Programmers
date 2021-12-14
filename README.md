@@ -32,6 +32,30 @@ python src\manage.py runserver
 
 go to 127.0.0.1:8000 to view the site.
 
+
+## More info for developers
+
+apps in the project
+
+- auth app
+    - for authentications 
+    ## TODOS
+        - [x] Register users
+        - [x] Activate user via email
+        - [x] Login users
+        - [x] Password Reset / Forgotten password
+        - [x] Change password
+
+- admin dashboard
+    ## TODOS
+        - Administrative tasks
+            - [x] list all users 
+- blog app
+    ## TODOS
+        - [x] create a blog
+        - [x] blog comments
+        - [x] comment replies
+
 #
 
 > for Tanzania from Tanzania 
