@@ -7,7 +7,7 @@ The Tanzania Programmer community website source
 - [ ] Simplified code sharing
 - [ ] Tech jobs in Tanzania
 - [ ] Programming chat room
-- [ ] Access to tech trends / A Tech Blog
+- [x] Access to tech trends / A Tech Blog
 - [ ] QNA forum
 
 ## Development
