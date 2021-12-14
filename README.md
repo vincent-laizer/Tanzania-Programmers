@@ -33,3 +33,5 @@ python src\manage.py runserver
 go to 127.0.0.1:8000 to view the site.
 
 ######
+
+>>>> “for Tanzania from Tanzania
