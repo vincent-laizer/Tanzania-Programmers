@@ -11,6 +11,12 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+from dj_database_url import parse as db_url
+from decouple import config
+import os
+import datetime
+
+from django.core.management.utils import get_random_secret_key
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,28 +26,40 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-+1ga-sb=@t+1qg!ofr_o(u%1z7qz4oo$6uhpj6#t7c2imk6gd8'
+SECRET_KEY = config('DJANGO_SECRET_KEY', default=get_random_secret_key())
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config("DEBUG", default=1, cast=bool)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    
+    # custom apps
+    'authapp',
+    'dashboard',
+    'blog',
+    
+    # extra
+    'corsheaders',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -54,7 +72,12 @@ ROOT_URLCONF = 'tzprogrammers.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            BASE_DIR / 'templates', 
+            BASE_DIR / 'dashboard/templates', 
+            BASE_DIR / 'authapp/templates', 
+            BASE_DIR / 'blog/templates'
+            ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -69,15 +92,18 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'tzprogrammers.wsgi.application'
 
+AUTH_USER_MODEL = 'authapp.User'
+
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': config(
+        'DATABASE_URL',
+        default='sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3'),
+        cast=db_url
+    )
 }
 
 
@@ -105,9 +131,11 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Africa/Dar_es_Salaam'
 
 USE_I18N = True
+
+USE_L10N = True
 
 USE_TZ = True
 
@@ -121,3 +149,21 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+STATICFILES_DIRS = [
+    # BASE_DIR / "static",
+    BASE_DIR / "dashboard/static",
+    BASE_DIR / "authapp/static",
+    BASE_DIR / "blog/static"
+]
+
+
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
+# Media files
+
+MEDIA_ROOT = BASE_DIR / "mediafiles"
+MEDIA_URL = "/media/"
+
+JANJAS_MAILER_API_KEY = config('JANJAS_MAILER_API_KEY')

@@ -37,7 +37,7 @@ go to 127.0.0.1:8000 to view the site.
 
 apps in the project
 
-- auth app
+- authapp
     - for authentications 
     ## TODOS
         - [x] Register users
@@ -56,6 +56,10 @@ apps in the project
         - [x] blog comments
         - [x] comment replies
 
+
+migration commans
+
+python manage.py makemigrations && python manage.py migrate
 #
 
 > for Tanzania from Tanzania 
