@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views import View
-
+from django.contrib import messages
 
 
 class Home(View):
@@ -9,9 +9,11 @@ class Home(View):
 
     def get(self, request):
         
-        context = [
-            
-        ]
+        context = {
+            'heading':"Home - Tanzania Programmers"
+        }
+        
+        messages.info(request, "Welcome to Tanzania programmers")
         
         return render(request, 'authapp/home.html', context)
     
@@ -23,9 +25,9 @@ class Login(View):
     
     def get(self, request):
         
-        context = [
+        context = {
             
-        ]
+        }
         
         return render(request, 'authapp/login.html', context)
     

@@ -1,0 +1,175 @@
+{% extends 'authapp/authapp_base.html'%}
+
+
+<!-- styles -->
+{% block styles %} 
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap');
+
+.top-header {
+
+    height: 40vh;
+    background-color: rgb(206, 67, 67);
+    width: 100%;
+    color: #ffffff;
+    
+}
+
+.low-header {
+
+    height: 50vh;
+    width: 100%;
+
+}
+
+.head {
+    font-family: 'Inconsolata', monospace;
+    font-size: 1.5rem;
+}
+
+@media screen and (min-width: 800px) {
+    .head {
+        font-family: 'Inconsolata', monospace;
+        font-size: 4rem;
+    }
+}
+
+.back-color {
+    background-color: #CE4343;
+    color: white;
+}
+
+.top-colored-border {
+    border-top: 2px solid #CE4343;
+}
+
+</style>
+{% endblock%}
+
+
+<!-- extra scripts -->
+{% block scripts %} 
+
+{% endblock %}
+
+
+<!-- body content -->
+{% block content%}
+
+
+<div class="header-section">
+
+    <!-- header -->
+    <div class="top-header d-flex flex-column justify-content-center align-items-center text-white">
+
+            <p>#From Tanzanians for Tanzanians</p>
+            <h1 class="text-white head animate__animated animate__fadeInLeft animate__slow">
+                < Tanzania Programmers />
+            </h1>
+            <p>
+                <div class="row d-flex g-3">
+                    <div class="col">
+                        <button class="btn bg-white w-100" style="border-radius: 0px;">
+                            LOGIN
+                        </button>
+                    </div>
+                    <div class="col">
+                        <button class="btn bg-white w-100" style="border-radius: 0px;">
+                            REGISTER
+                        </button>
+                    </div>
+                </div>
+            </p>
+
+    </div>
+
+    <!-- welcome info -->
+    <div class=" container-fluid row low-header">
+
+        <div class="col-md-3 p-3">
+            <div class="card mt-3 animate__animated animate__fadeInUp animate__fast" style="border-radius: 0px;">
+                <div class="card-body">
+                    <h1 class="head-font">
+                        A Tech Blog
+                    </h1>
+                    <hr>
+                    <p>
+                        Read high quality articles written by experienced Tanzanian tech geeks.
+                        <br> ...
+                    </p>
+
+                    <div class="action">
+                        <button class="btn back-color" style="border-radius: 0px;">
+                            VISIT <i class="bi bi-arrow-right mx-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 p-3">
+            <div class="card mt-3 animate__animated animate__fadeInUp animate__fast" style="border-radius: 0px;">
+                <div class="card-body">
+                    <h1 class="head-font">
+                        Q & A Forum
+                    </h1>
+                    <hr>
+                    <p>
+                        Get answers for your programming question.
+                        <br>...
+                    </p>
+
+                    <div class="action">
+                        <button class="btn back-color" style="border-radius: 0px;">
+                            VISIT <i class="bi bi-arrow-right mx-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 p-3">
+            <div class="card mt-3 animate__animated animate__fadeInUp animate__fast" style="border-radius: 0px;">
+                <div class="card-body">
+                    <h1 class="head-font">
+                        Tech jobs in Tanzania
+                    </h1>
+                    <hr>
+                    <p>
+                        Get access to tech job opportunities available in Tanzania. 
+                        <br> ...
+                    </p>
+
+                    <div class="action">
+                        <button class="btn back-color" style="border-radius: 0px;">
+                            VISIT <i class="bi bi-arrow-right mx-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 p-3">
+            <div class="card mt-3 animate__animated animate__fadeInUp animate__fast" style="border-radius: 0px;">
+                <div class="card-body">
+
+                    <h1 class="head-font">
+                        Simplified code sharing & programming chatrooms
+                    </h1>
+                    <hr>
+                    <p>
+                        Share programs and code snippets in a faster and simplified way.
+                    </p>
+                    <div class="action">
+                        <button class="btn back-color" style="border-radius: 0px;">
+                            VISIT <i class="bi bi-arrow-right mx-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+{% endblock %}
