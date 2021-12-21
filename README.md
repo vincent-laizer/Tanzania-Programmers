@@ -57,7 +57,7 @@ apps in the project
         - [x] comment replies
 
 
-migration commans
+migration commands
 
 python manage.py makemigrations && python manage.py migrate
 #
